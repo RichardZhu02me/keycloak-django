@@ -14,7 +14,7 @@ SECRET_KEY = env(
     default="rJAEhrCrCK4CqDa4vsHwqLy8DvHKvjxZmGpRUi45VTTEJTQ6QT0q5KPmtltkjcZn",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]  # noqa: S104
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1","example.com"]  # noqa: S104
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -68,3 +68,10 @@ INSTALLED_APPS += ["django_extensions"]
 CELERY_TASK_EAGER_PROPAGATES = True
 # Your stuff...
 # ------------------------------------------------------------------------------
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'  # Assuming Mailpit is running on localhost
+EMAIL_PORT = 1025  # Default Mailpit SMTP port
+EMAIL_USE_TLS = False  # Mailpit doesn't require TLS
+EMAIL_HOST_USER = ''  # Leave empty if Mailpit doesn't need authentication
+EMAIL_HOST_PASSWORD = ''  # Leave empty if Mailpit doesn't need authentication
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'  # Or any email you'd like

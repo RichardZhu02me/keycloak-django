@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.mfa",
     "allauth.socialaccount",
+    'allauth.socialaccount.providers.openid_connect',
     "django_celery_beat",
 ]
 
@@ -321,3 +322,19 @@ SOCIALACCOUNT_FORMS = {"signup": "keycloak_django.users.forms.UserSocialSignupFo
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+SOCIALACCOUNT_PROVIDERS = {
+    "openid_connect": {
+        "APPS": [
+            {
+                "provider_id": "keycloak",
+                "name": "Keycloak",
+                "client_id": "SSO_auth",
+                "secret": "7QfPeHMebjA56ExcwaYOui78qKHtbpyS",
+                "settings": {
+                    "server_url": "http://localhost:8080/realms/myrealm/.well-known/openid-configuration",
+                },
+            }
+        ]
+    }
+}
+SOCIAL_AUTH_KEYCLOAK_REDIRECT_URI = 'http://example.com:8001/accounts/oidc/keycloak/login/callback/'
