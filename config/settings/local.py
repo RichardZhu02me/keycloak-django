@@ -70,7 +70,7 @@ CELERY_TASK_EAGER_PROPAGATES = True
 # ------------------------------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'localhost'  # Assuming Mailpit is running on localhost
-EMAIL_PORT = 1025  # Default Mailpit SMTP port
+EMAIL_PORT = 1024  # Default Mailpit SMTP port
 EMAIL_USE_TLS = False  # Mailpit doesn't require TLS
 EMAIL_HOST_USER = ''  # Leave empty if Mailpit doesn't need authentication
 EMAIL_HOST_PASSWORD = ''  # Leave empty if Mailpit doesn't need authentication
